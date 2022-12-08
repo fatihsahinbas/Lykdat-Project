@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>Upload files with Flask</title>
+</head>
+
+<body>
+    <h1>Lykdat Demo<h1>
+
+            <form method=post enctype=multipart/form-data>
+                <input type=file name=file multiple>
+                <input type=submit value=Upload>
+            </form>
+            <p align="center"><a href=vmd_timestamp target="_blank"><button class=grey style="height:75px;width:150px">Göster</button></a></p>
+
+            {%- if files %}
+            <h2>Files</h2>
+            <ul>
+                {%- for code, file in files.items() %}
+                <li><a href="/download/{{ code }}" target="_blank">{{ file }}</a></li>
+                {% endfor %}            
+            </ul>         
+            {% endif %}          
+
+
+</body>
+
+</html>
